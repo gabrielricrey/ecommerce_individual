@@ -14,7 +14,9 @@ export const components = {
  * @returns {StoryblokApi}
  */
 export const getStoryblokApi = storyblokInit({
-  accessToken: process.env.STORYBLOK_DELIVERY_API_ACCESS_TOKEN,
+  accessToken:
+    process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN ||
+    NEXT_PUBLIC_STORYBLOK_PUBLIC_TOKEN,
   use: [apiPlugin],
   apiOptions: {
     region: "eu",
