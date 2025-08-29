@@ -1,3 +1,3 @@
 export default function getSbVersion() {
-  return process.env.STORYBLOK_IS_PREVIEW === "true" ? "draft" : "published";
+  return process.env.NODE_ENV !== "production" ? "draft" : "published";
 }
