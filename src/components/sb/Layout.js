@@ -19,7 +19,9 @@ export default async function Layout({ children }) {
         </div>
         <input type="text" className={seachInputClasses} />
       </header>
+
       {children}
+
       <footer className={footerClasses}>Footer</footer>
     </>
   );
