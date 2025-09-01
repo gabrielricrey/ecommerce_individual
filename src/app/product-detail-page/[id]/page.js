@@ -17,7 +17,7 @@ export default async function ProductDetailPage({ params }) {
   console.log(product);
 
   return (
-    <section className="h-[100vh] flex flex-col md:flex-row w-full">
+    <section className="h-[100vh] flex flex-col md:flex-row w-full bg-[#EFF2F6]">
       <div className="flex-1 flex items-center justify-center">
         <Image src={product.image_url} alt={{}} width={400} height={400} />
       </div>
