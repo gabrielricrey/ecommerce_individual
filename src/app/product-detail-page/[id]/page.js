@@ -2,13 +2,12 @@ import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 
 export default async function ProductDetailPage({ params }) {
-  const { id } = await params;
+  let { id } = await params;
   console.log(id);
+  id = Number(id);
 
   const { data: product, error } = await supabase
-    .from("product")
-    .select()
-    .eq("id", id)
+    .rpc("get_product_detail", { p_id: id })
     .single();
 
   if (error || !product) {
@@ -30,10 +29,10 @@ export default async function ProductDetailPage({ params }) {
           <div className="mb-2">
             <p>Color</p>
             <div className="flex">
-              {product.color.map((color, i) => (
+              {product.colors.map((color, i) => (
                 <div
                   key={i}
-                  className="border-1 rounded-full w-10 h-10"
+                  className="w-10 h-10 rounded-full border-1 cursor-pointer"
                   style={{ backgroundColor: color }}
                 ></div>
               ))}
@@ -41,16 +40,7 @@ export default async function ProductDetailPage({ params }) {
           </div>
           <div className="mb-2">
             <p>Size</p>
-            <div className="flex">
-              {product.size.map((size, i) => (
-                <div
-                  key={i}
-                  className="border-1 rounded-md w-10 h-10 flex justify-center items-center"
-                >
-                  <p>{size.toUpperCase()}</p>
-                </div>
-              ))}
-            </div>
+            <div className="flex"></div>
           </div>
           <div>
             <a>Size & fit guide</a>
