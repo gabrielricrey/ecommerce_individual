@@ -1,28 +1,19 @@
 import { getStoryblokApi } from "@/lib/storyblok";
 import getSbVersion from "@/utils/getSbVersion";
-import Link from "next/link";
+import Header from "../Header";
+import Footer from "../Footer";
 
 export default async function Layout({ children }) {
   const { data } = await fetchData();
-
-  const headerClasses =
-    "w-full border-black border-b-1 border-opacity-50 flex justify-center items-center bg-[#EFF2F6] h-[60px]";
-  const footerClasses = "w-full";
-  const seachInputClasses = "outline-none bg-white";
+  console.log(data.story.content.logo);
 
   return (
     <>
-      <header className={headerClasses}>
-        <div>
-          <Link href={{}}>{data.story.content.header_links[0].name}</Link>
-          <Link href={{}}>{data.story.content.header_links[1].name}</Link>
-        </div>
-        <input type="text" className={seachInputClasses} />
-      </header>
+      <Header data={data.story.content} />
 
       {children}
 
-      <footer className={footerClasses}>Footer</footer>
+      <Footer data={data.story.content} />
     </>
   );
 }
