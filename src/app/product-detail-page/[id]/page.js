@@ -1,5 +1,3 @@
-import { getStoryblokApi } from "@/lib/storyblok";
-import getSbVersion from "@/utils/getSbVersion";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 
