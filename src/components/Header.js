@@ -3,10 +3,13 @@ import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
+import { cn } from "@/utils/cn";
 
-export default function Header({ data }) {
-  const headerClasses =
-    "w-full border-black border-b-1 border-opacity-50 flex justify-center items-center bg-[#EFF2F6] h-[60px]";
+export default function Header({ data, darkMode }) {
+  const headerClasses = cn(
+    "w-full border-black border-b-1 border-opacity-50 flex justify-center items-center bg-[#EFF2F6] h-[60px]",
+    { "bg-black text-white": darkMode }
+  );
   const seachInputClasses = "outline-none";
   return (
     <header className={headerClasses}>
