@@ -1,15 +1,15 @@
 import { getStoryblokApi } from "@/lib/storyblok";
 import getSbVersion from "@/utils/getSbVersion";
-import Header from "../Header";
-import FooterWrapper from "./FooterWrapper";
+import HeaderFooterWrapper from "./HeaderFooterWrapper";
 
 export default async function Layout({ children }) {
   const { data } = await fetchData();
 
   return (
     <>
-      <Header data={data.story.content} />
-      <FooterWrapper data={data.story.content}>{children}</FooterWrapper>
+      <HeaderFooterWrapper data={data.story.content}>
+        {children}
+      </HeaderFooterWrapper>
     </>
   );
 }
