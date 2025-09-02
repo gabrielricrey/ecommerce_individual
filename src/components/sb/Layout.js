@@ -1,7 +1,7 @@
 import { getStoryblokApi } from "@/lib/storyblok";
 import getSbVersion from "@/utils/getSbVersion";
 import Header from "../Header";
-import Footer from "../Footer";
+import FooterWrapper from "./FooterWrapper";
 
 export default async function Layout({ children }) {
   const { data } = await fetchData();
@@ -9,10 +9,7 @@ export default async function Layout({ children }) {
   return (
     <>
       <Header data={data.story.content} />
-
-      {children}
-
-      <Footer data={data.story.content} />
+      <FooterWrapper data={data.story.content}>{children}</FooterWrapper>
     </>
   );
 }

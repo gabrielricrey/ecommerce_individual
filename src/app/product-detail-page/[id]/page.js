@@ -48,5 +48,3 @@ export default async function ProductDetailPage({ params }) {
     </section>
   );
 }
-
-export async function fetchData() {}
