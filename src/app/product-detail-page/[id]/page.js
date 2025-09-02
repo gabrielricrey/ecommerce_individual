@@ -3,7 +3,6 @@ import { supabase } from "@/lib/supabaseClient";
 
 export default async function ProductDetailPage({ params }) {
   let { id } = await params;
-  console.log(id);
   id = Number(id);
 
   const { data: product, error } = await supabase
@@ -13,8 +12,6 @@ export default async function ProductDetailPage({ params }) {
   if (error || !product) {
     return <h1>Product not found</h1>;
   }
-
-  console.log(product);
 
   return (
     <section className="h-[100vh] flex flex-col md:flex-row w-full bg-[#EFF2F6]">
