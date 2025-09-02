@@ -1,7 +1,6 @@
 import { storyblokEditable } from "@storyblok/react";
 
 export default function Hero({ blok }) {
-  console.log("Hero component", blok);
   return (
     <main
       {...storyblokEditable(blok)}

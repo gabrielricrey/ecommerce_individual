@@ -5,7 +5,6 @@ import Footer from "../Footer";
 
 export default async function Layout({ children }) {
   const { data } = await fetchData();
-  console.log(data.story.content.logo);
 
   return (
     <>
