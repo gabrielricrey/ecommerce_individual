@@ -1,0 +1,15 @@
+name: Block fork PRs
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  block-forks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kontrollera om PR är från fork
+        if: ${{ github.event.pull_request.head.repo.fork == true }}
+        run: |
+          echo "❌ Pull requests från forks är inte tillåtna."
+          exit 1
