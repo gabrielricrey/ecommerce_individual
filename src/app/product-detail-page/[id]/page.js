@@ -13,10 +13,18 @@ export default async function ProductDetailPage({ params }) {
     return <h1>Product not found</h1>;
   }
 
+  console.log(product);
+
   return (
     <section className="h-[100vh] flex flex-col md:flex-row w-full bg-[#EFF2F6]">
       <div className="flex-1 flex items-center justify-center">
-        <Image src={product.image_url} alt={{}} width={400} height={400} />
+        <Image
+          src={product.image_url}
+          alt={product.name}
+          width={400}
+          height={400}
+          priority
+        />
       </div>
       <div className="flex-1 flex items-center justify-center">
         <div>
