@@ -1,12 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import {
-  MagnifyingGlassIcon,
-  ShoppingBagIcon,
-} from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
+import SearchInput from "./SearchInput";
 
 export default function Header({ data, darkMode }) {
   const [hovered, setHovered] = useState(false);
@@ -16,8 +14,6 @@ export default function Header({ data, darkMode }) {
     "w-full border-black border-b-1 border-opacity-50 flex justify-center items-start bg-[#EFF2F6]",
     { "bg-black text-white": darkMode }
   );
-
-  const seachInputClasses = "outline-none";
 
   return (
     <header className={headerClasses}>
@@ -67,14 +63,7 @@ export default function Header({ data, darkMode }) {
           <Link href="#">{data.header_links[1].name}</Link>
 
           {/* SEARCH */}
-          <div className="flex-1 flex gap-3 justify-start">
-            <MagnifyingGlassIcon className="size-6" />
-            <input
-              type="text"
-              className={seachInputClasses}
-              placeholder="Search"
-            />
-          </div>
+          <SearchInput />
         </div>
 
         {/* BAG */}
