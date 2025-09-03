@@ -13,35 +13,57 @@ export default async function ProductDetailPage({ params }) {
     return <h1>Product not found</h1>;
   }
 
+  console.log(product);
+
   return (
-    <section className="h-[100vh] flex flex-col md:flex-row w-full bg-[#EFF2F6]">
-      <div className="flex-1 flex items-center justify-center">
-        <Image src={product.image_url} alt={{}} width={400} height={400} />
-      </div>
-      <div className="flex-1 flex items-center justify-center">
-        <div>
-          <h2 className="text-3xl mb-2">{product.name}</h2>
-          <p className="mb-2">€{product.price}</p>
-          <p className="mb-2">{product.description}</p>
-          <div className="mb-2">
-            <p>Color</p>
-            <div className="flex">
-              {product.colors.map((color, i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 rounded-full border-1 cursor-pointer"
-                  style={{ backgroundColor: color }}
-                ></div>
-              ))}
+    <section className="h-[100vh] bg-[#EFF2F6]">
+      <div className="flex flex-col items-center md:flex-row w-full md:items-start pt-15">
+        <div className="flex-1 flex items-center justify-center">
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            width={554}
+            height={554}
+            className="mx-5"
+            priority
+          />
+        </div>
+        <div className="flex-1 flex flex-col h-[400px]">
+          <div className="mx-5">
+            <h2 className="text-4xl font-bold mb-2">{product.name}</h2>
+            <p className="mb-5">€{product.price}</p>
+            <p className="mb-2">{product.description}</p>
+          </div>
+          <div className="mt-auto mx-5">
+            <div className="mb-2">
+              <p className="text-gray-500 mb-2">Color</p>
+              <div className="flex gap-1">
+                {product.colors.map((color, i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full border-1 cursor-pointer"
+                    style={{ backgroundColor: color }}
+                  ></div>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="mb-2">
-            <p>Size</p>
-            <div className="flex"></div>
-          </div>
-          <div>
-            <a>Size & fit guide</a>
-            <p>Height of model: </p>
+            <div className="mb-5">
+              <p className="text-gray-500 mb-2">Size</p>
+              <div className="flex gap-1">
+                {product.sizes.map((size, i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 border-1 cursor-not-allowed hover:bg-white flex justify-center items-center"
+                  >
+                    {size.toUpperCase()}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <a className="underline text-sm mb-2">Size & fit guide</a>
+              <p className="text-sm text-gray-500">Height of model: </p>
+            </div>
           </div>
         </div>
       </div>
