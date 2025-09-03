@@ -24,7 +24,6 @@ export default function Header({ data, darkMode }) {
             {data.logo[0].label}
           </Link>
 
-
           <div
             className="relative"
             onMouseEnter={() => setHovered(true)}
@@ -61,6 +60,8 @@ export default function Header({ data, darkMode }) {
           <Link href="#">{data.header_links[1].name}</Link>
           <SearchSection />
         </div>
+
+        {/* BAG */}
         <ShoppingBagIcon className="size-6 cursor-pointer" />
       </nav>
     </header>
