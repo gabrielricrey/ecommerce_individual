@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import {
-  MagnifyingGlassIcon,
-  ShoppingBagIcon,
-} from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
+
+import SearchSection from "./SearchSection";
 
 export default function Header({ data, darkMode }) {
   const [hovered, setHovered] = useState(false);
@@ -17,18 +16,20 @@ export default function Header({ data, darkMode }) {
     { "bg-black text-white": darkMode }
   );
 
-  const seachInputClasses = "outline-none";
 
   return (
     <header className={headerClasses}>
       <nav className="flex w-[1400px] gap-10 px-5 justify-between py-3 transition-all duration-300">
-        <div className="flex-1 flex gap-10 items-start">
-          {/* LOGO */}
+        <div className="flex-1 flex gap-10">
+
+
+  
+
           <Link href="/" className="font-bold text-lg">
             {data.logo[0].label}
           </Link>
 
-          {/* PRODUCTS DROPDOWN */}
+
           <div
             className="relative"
             onMouseEnter={() => setHovered(true)}
@@ -61,20 +62,10 @@ export default function Header({ data, darkMode }) {
                 </div>
               </div>
             )}
-          </div>
 
-          {/* ANOTHER LINK */}
+          </div>
           <Link href="#">{data.header_links[1].name}</Link>
-
-          {/* SEARCH */}
-          <div className="flex-1 flex gap-3 justify-start">
-            <MagnifyingGlassIcon className="size-6" />
-            <input
-              type="text"
-              className={seachInputClasses}
-              placeholder="Search"
-            />
-          </div>
+          <SearchSection />
         </div>
 
         {/* BAG */}
