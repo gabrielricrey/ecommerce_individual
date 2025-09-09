@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
-
 import SearchSection from "./SearchSection";
 
 export default function Header({ data, darkMode }) {
@@ -16,19 +15,14 @@ export default function Header({ data, darkMode }) {
     { "bg-black text-white": darkMode }
   );
 
-
   return (
     <header className={headerClasses}>
       <nav className="flex w-[1400px] gap-10 px-5 justify-between py-3 transition-all duration-300">
         <div className="flex-1 flex gap-10">
 
-
-  
-
           <Link href="/" className="font-bold text-lg">
             {data.logo[0].label}
           </Link>
-
 
           <div
             className="relative"
