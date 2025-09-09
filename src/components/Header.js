@@ -56,6 +56,7 @@ export default function Header({ data, darkMode }) {
                 </div>
               </div>
             )}
+
           </div>
           <Link href="#">{data.header_links[1].name}</Link>
           <SearchSection />
